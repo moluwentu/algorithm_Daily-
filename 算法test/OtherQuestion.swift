@@ -45,4 +45,50 @@ class OtherQuestion: NSObject {
     func distributeCandies(_ candies: [Int]) -> Int {
         return min(candies.count / 2, Array(Set(candies)).count)
     }
+    
+    /// Write a program that outputs the string representation of numbers from 1 to n.
+    
+    ///But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+    ///
+    /// - Example:    
+    /// n = 15,
+    ///
+    /// Return:
+    /// [
+    /// "1",
+    /// "2",
+    /// "Fizz",
+    /// "4",
+    /// "Buzz",
+    /// "Fizz",
+    /// "7",
+    /// "8",
+    /// "Fizz",
+    /// "Buzz",
+    /// "11",
+    /// "Fizz",
+    /// "13",
+    /// "14",
+    /// "FizzBuzz"
+    //// ]
+    func fizzBuzz(_ n: Int) -> [String] {
+        var arr = [String]()
+        
+        for index in 1...n {
+            var str = String(index)
+            
+            if index % 3 == 0 {
+                str = "Fizz"
+            }
+            if index % 5 == 0 {
+                str  = "Buzz"
+            }
+            if index % 5 == 0 && index % 3 == 0 {
+                str = "FizzBuzz"
+            }
+            
+            arr.append(str)
+        }
+        return arr
+    }
 }
