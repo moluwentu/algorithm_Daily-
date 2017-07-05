@@ -50,5 +50,45 @@ class TreeQuestion: NSObject {
         ans.right = mergeTrees(t1?.right, t2?.right)
         return ans
     }
+    
+    
+    /// ****** 2 ******
+    ///Given a binary tree, find the leftmost value in the last row of the tree.
+    ///Example:
+    ///Input:
+    
+    ///      1
+    ///     / \
+    ///    2   3
+    ///   /   / \
+    ///  4   5   6
+    ///  /
+    /// 7
+    
+    ///Output:
+    ///7
+    ///Note: You may assume the tree (i.e., the given root node) is not NULL.
+    var ans = 0
+    var h = 0
+    
+    func findBottomLeftValue(_ root: TreeNode?) -> Int {
+        
+        findBottomLeftValue(root: root!, depth: 1)
+        
+        return ans
+    }
+    
+    func findBottomLeftValue(root : TreeNode, depth : Int) {
+        if h < depth {
+            ans = root.val
+            h = depth
+        }
+        if root.left != nil {
+            findBottomLeftValue(root: root.left!, depth: depth + 1)
+        }
+        if root.right != nil {
+            findBottomLeftValue(root: root.right!, depth: depth + 1)
+        }
+    }
 
 }
