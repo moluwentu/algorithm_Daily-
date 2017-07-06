@@ -90,5 +90,42 @@ class TreeQuestion: NSObject {
             findBottomLeftValue(root: root.right!, depth: depth + 1)
         }
     }
+    
+    /// ****** 3 ******
+    ///You need to find the largest value in each row of a binary tree.
+    ///Example:
+    ///Input:
+    
+    ///      1
+    ///     / \
+    ///    3   2
+    ///   / \   \
+    ///  5   3   9
+    
+    ///Output: [1, 3, 9]
+    
+    var result = [Int]();
+    
+    func largestValues(_ root: TreeNode?) -> [Int] {
+        
+        getLargestValues(root: root, row: 0)
+        
+        return result
+    }
+    
+    func getLargestValues(root : TreeNode?, row : Int) {
+        if root == nil {
+            return
+        }
+        
+        if row == result.count {
+            result.append(root!.val)
+        }else{
+            result[row] = max(result[row], root!.val)
+        }
+        
+        getLargestValues(root: root!.left, row: row + 1)
+        getLargestValues(root: root!.right, row: row + 1)
+    }
 
 }
