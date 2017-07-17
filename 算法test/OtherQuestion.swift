@@ -118,4 +118,33 @@ class OtherQuestion: NSObject {
         
         return numArr
     }
+    
+    /// ****** 5 ******
+    ///Given a sorted array consisting of only integers where every element appears twice except for one element which appears once. Find this single element that appears only once.
+    ///Example 1:
+    ///Input: [1,1,2,3,3,4,4,8,8]
+    ///Output: 2
+    
+    ///Example 2:
+    ///Input: [3,3,7,7,10,11,11]
+    ///Output: 10
+    func singleNonDuplicate(_ nums: [Int]) -> Int {
+        var start = 0
+        var end = nums.count - 1
+        //思路：主要用二分法,取中间数的前一个和后一个对比，相同代表不同的在后半部分，不同代表在前半部分，注意总数的奇偶
+        while start < end {
+            var mid = (start + end) / 2
+            if(mid % 2) == 1{
+                mid -= 1
+            }
+            
+            if nums[mid] == nums[mid + 1] {
+                start = mid + 2
+            }else{
+                end = mid
+            }
+        }
+        return nums[start]
+    }
 }
+
