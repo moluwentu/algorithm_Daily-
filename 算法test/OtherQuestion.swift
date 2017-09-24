@@ -146,5 +146,54 @@ class OtherQuestion: NSObject {
         }
         return nums[start]
     }
+    ///****** 5 ******
+    ///    Given a non-empty string containing an out-of-order English representation of digits 0-9, output the digits in ascending order.
+    ///
+    ///    Note:
+    ///    Input contains only lowercase English letters.
+    ///    Input is guaranteed to be valid and can be transformed to its original digits. That means invalid inputs such as "abc" or "zerone" are not permitted.
+    ///    Input length is less than 50,000.
+    
+    ///    Example 1:
+    ///    Input: "owoztneoer"
+    ///
+    ///    Output: "012"
+    ///    Example 2:
+    ///    Input: "fviefuro"
+    ///
+    ///    Output: "45"
+    func originalDigits(_ s: String) -> String {
+        var array = [0,0,0,0,0,0,0,0,0,0]
+  
+        for c in s.characters {
+            if c == "z" {array[0]+=1}
+            if c == "o" {array[1]+=1} //0,1,2,4
+            if c == "w" {array[2]+=1}
+            if c == "h" {array[3]+=1} //3,8
+            if c == "u" {array[4]+=1}
+            if c == "f" {array[5]+=1} //4,5
+            if c == "x" {array[6]+=1}
+            if c == "s" {array[7]+=1}  //6,7
+            if c == "g" {array[8]+=1}
+            if c == "i" {array[9]+=1} //5,6,8,9
+        }
+        
+        array[7]-=array[6]
+        array[5]-=array[4]
+        array[3]-=array[8]
+        array[9] = array[9] - array[5] - array[6] - array[8]
+        array[1] = array[1] - array[0] - array[2] - array[4]
+        
+        var resultStr = ""
+        for i in 0...9 {
+            for j in 0...array[i]{
+                if j != 0{
+                    resultStr.append(String(i))
+                }
+            }
+        }
+        
+        return resultStr
+    }
 }
 
