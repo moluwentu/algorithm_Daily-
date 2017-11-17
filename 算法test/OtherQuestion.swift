@@ -20,7 +20,7 @@ class OtherQuestion: NSObject {
         var fullStr = String.init()
         
         for (index,str) in arr.enumerated() {
-            let daoStr = String(str.characters.reversed())
+            let daoStr = String(String(str).reversed())
             index == arr.count - 1 ? fullStr.append(daoStr) : fullStr.append(daoStr + " ")
         }
         return fullStr
@@ -165,7 +165,7 @@ class OtherQuestion: NSObject {
     func originalDigits(_ s: String) -> String {
         var array = [0,0,0,0,0,0,0,0,0,0]
   
-        for c in s.characters {
+        for c in String(s) {
             if c == "z" {array[0]+=1}
             if c == "o" {array[1]+=1} //0,1,2,4
             if c == "w" {array[2]+=1}
