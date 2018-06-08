@@ -209,7 +209,7 @@ class OtherQuestion: NSObject {
         var maps = Dictionary<Int, Int>()
         
         for (i,num) in nums.enumerated(){
-             let complement = target - nums[i]
+            let complement = target - nums[i]
             for (key,value) in maps{
                 if value == complement{
                     return [key,i]
