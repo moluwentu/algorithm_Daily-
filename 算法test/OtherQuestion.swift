@@ -222,6 +222,7 @@ class OtherQuestion: NSObject {
         return []
     }
     
+    ///****** 7 ******
     ///A self-dividing number is a number that is divisible by every digit it contains.
     
     ///For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0.
@@ -259,6 +260,23 @@ class OtherQuestion: NSObject {
             }
         }
         return true
+    }
+   
+    ///****** 8 ******
+    //    You're given strings J representing the types of stones that are jewels, and S representing the stones you have.  Each character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.
+    //
+    //    The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so "a" is considered a different type of stone from "A".
+
+    func numJewelsInStones(_ J: String, _ S: String) -> Int {
+        var num = 0
+        
+        for str in S {
+            if J.contains(str){
+                num += 1
+            }
+        }
+        
+        return num
     }
 }
 
