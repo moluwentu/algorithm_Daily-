@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+//        print(OtherQuestion.sortArrayByParityII([4,2,5,7]))
     }
     
     override func didReceiveMemoryWarning() {

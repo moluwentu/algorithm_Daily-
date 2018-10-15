@@ -300,5 +300,39 @@ class OtherQuestion: NSObject {
         }
         return array[array.count / 2]
     }
+    
+    ///****** 10 ******
+    ///Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
+    
+    ///Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even, i is even.
+    
+    ///You may return any answer array that satisfies this condition.
+    
+    ///EXAMPLE
+    ///Input: [4,2,5,7]
+    ///Output: [4,5,2,7]
+    ///Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
+    
+    func sortArrayByParityII(_ A: [Int]) -> [Int] {
+        var array = A
+        
+        var num = 0
+        for x in A {
+            if(x % 2) == 0{
+                array[num] = x
+                num += 2
+            }
+        }
+        
+        num = 1
+        for x in A {
+            if(x % 2) == 1{
+                array[num] = x
+                num += 2
+            }
+        }
+        
+        return array
+    }
 }
 
