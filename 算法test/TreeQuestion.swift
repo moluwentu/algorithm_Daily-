@@ -172,17 +172,52 @@ class TreeQuestion: NSObject {
     ///
     ///    You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
     
-    class Solution {
-        func mergeTrees(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {
-            if t1 == nil {return t2}
-            if t2 == nil {return t1}
-            
-            t1!.val += t2!.val
-            t1!.left = mergeTrees(t1!.left, t2!.left)
-            t1!.right = mergeTrees(t1!.right, t2!.right)
-            
-            return t1
-        }
+    func mergeTrees2(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {
+        if t1 == nil {return t2}
+        if t2 == nil {return t1}
+        
+        t1!.val += t2!.val
+        t1!.left = mergeTrees2(t1!.left, t2!.left)
+        t1!.right = mergeTrees2(t1!.right, t2!.right)
+        
+        return t1
     }
-   
+    
+    /// ****** 6 ******
+    ///   Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
+    ///   The root is the maximum number in the array.
+    ///   The left subtree is the maximum tree constructed from left part subarray divided by the maximum number.
+    ///   The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.
+    ///   Construct the maximum tree by the given array and output the root node of this tree.
+    
+    func constructMaximumBinaryTree(_ nums: [Int]) -> TreeNode? {
+        print(nums.count)
+        return construct(nums, 0, nums.count)
+    }
+    
+    func construct(_ nums: [Int],_ start : Int,_ len : Int) -> TreeNode?{
+        
+        if (start == len){
+            return nil
+        }
+        
+        let max_i = findMax(nums, start, len)
+        let root = TreeNode.init(nums[max_i])
+        root.left = construct(nums,start,max_i)
+        root.right = construct(nums,max_i+1,len)
+        
+        return root
+    }
+    
+    func findMax(_ nums : [Int], _ start : Int, _ len : Int) -> Int{
+        var max = start
+        
+        for i in start..<len {
+            if nums[i] > nums[max] {
+                max = i
+            }
+        }
+        
+        return max
+    }
 }
