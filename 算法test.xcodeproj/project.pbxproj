@@ -49,7 +49,7 @@
 		6D0B3D431EFD1A7A00C74E52 /* 算法testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "算法testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D0B3D471EFD1A7A00C74E52 /* __testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = __testUITests.swift; sourceTree = "<group>"; };
 		6D0B3D491EFD1A7B00C74E52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DFF42CF1F049A82006F6BA5 /* TreeQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeQuestion.swift; sourceTree = "<group>"; };
+		6DFF42CF1F049A82006F6BA5 /* TreeQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeQuestion.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		6DFF42D11F049A93006F6BA5 /* OtherQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
