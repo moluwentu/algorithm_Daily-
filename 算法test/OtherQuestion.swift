@@ -210,12 +210,16 @@ class OtherQuestion: NSObject {
         
         for (i,num) in nums.enumerated(){
             let complement = target - nums[i]
-            for (key,value) in maps{
-                if value == complement{
-                    return [key,i]
-                }
+//             for (key,value) in maps{
+//                 if value == complement{
+//                     return [key,i]
+//                 }
+//             }
+//             maps[i] = num
+            if maps.contain(complement) {
+                return [i, complement]
             }
-            maps[i] = num
+            maps[num] = i
         }
         
         print("can't find num")
